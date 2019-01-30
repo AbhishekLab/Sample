@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.webkit.WebView
+import com.example.sample.permission.RuntimePermissionsActivity
 import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
 
@@ -23,13 +24,17 @@ abstract class BaseActivity<in T : ViewDataBinding> : DaggerActivity() {
     abstract fun initUI(binding: T)
     abstract fun contentView(): Int
 
-    protected open fun fragmentTransaction(transactionType: Int, fragment: Fragment,
-                                           container: Int, isAddToBackStack: Boolean) {
+    protected open fun fragmentTransaction(
+        transactionType: Int, fragment: Fragment,
+        container: Int, isAddToBackStack: Boolean
+    ) {
         fragmentTransaction(transactionType, fragment, container, isAddToBackStack, null)
     }
 
-    protected open fun fragmentTransaction(transactionType: Int, fragment: Fragment,
-                                           container: Int, isAddToBackStack: Boolean, bundle: Bundle?) {
+    protected open fun fragmentTransaction(
+        transactionType: Int, fragment: Fragment,
+        container: Int, isAddToBackStack: Boolean, bundle: Bundle?
+    ) {
         if (bundle != null)
             fragment.arguments = bundle
         val trans = fragmentManager.beginTransaction()

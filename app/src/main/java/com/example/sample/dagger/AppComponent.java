@@ -21,7 +21,6 @@ public interface AppComponent {
     interface Builder {
         @BindsInstance
         Builder application(App application);
-
         AppComponent build();
     }
 }
