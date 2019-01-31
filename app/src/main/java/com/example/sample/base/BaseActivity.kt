@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.util.SparseIntArray
 import android.webkit.WebView
+import com.google.firebase.FirebaseApp
 import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
 
