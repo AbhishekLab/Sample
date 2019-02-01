@@ -16,6 +16,9 @@ import android.webkit.WebView
 import com.google.firebase.FirebaseApp
 import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
+import android.app.ProgressDialog
+
+
 
 abstract class BaseActivity<in T : ViewDataBinding> : DaggerActivity() {
 
@@ -29,6 +32,7 @@ abstract class BaseActivity<in T : ViewDataBinding> : DaggerActivity() {
         mErrorString = SparseIntArray()
         initUI(mBinding)
         WebView(this).settings.allowFileAccess = false
+
     }
 
     abstract fun initUI(binding: T)
@@ -123,4 +127,14 @@ abstract class BaseActivity<in T : ViewDataBinding> : DaggerActivity() {
     }
 
     abstract fun onPermissionsGranted(requestCode: Int)
+
+    fun loader(){
+        val progress = ProgressDialog(this)
+        progress.setTitle("Loading")
+        progress.setMessage("Wait while loading...")
+        progress.setCancelable(false) // disable dismiss by tapping outside of the dialog
+        progress.show()
+// To dismiss the dialog
+        progress.dismiss()
+    }
 }

@@ -8,10 +8,11 @@ class FetchFiles @Inject constructor() {
 
     private var directoriess: ArrayList<String>? = ArrayList()
 
-    /*fun fetchFileFromBackGround(): ArrayList<String> {
+    fun fetchFileFromBackGround(): ArrayList<String> {
         val path = File(Environment.getExternalStorageDirectory(), "WhatsApp/Media/WhatsApp Images/Sent")
         if (path.exists()) {
             val fileNames = path.list()
+            val dirFiles = path.listFiles()
             if (fileNames.size != 0) {
                 for (i in fileNames) {
                     if (i != ".nomedia") {
@@ -25,5 +26,5 @@ class FetchFiles @Inject constructor() {
 
         }
         return directoriess!!
-    }*/
+    }
 }
