@@ -1,4 +1,4 @@
-package com.example.sample.login
+package com.example.sample.register
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -12,10 +12,15 @@ import android.view.animation.AccelerateInterpolator
 import com.example.sample.R
 import com.example.sample.base.BaseActivity
 import com.example.sample.databinding.ActivityRegisterBinding
+import com.example.sample.login.LoginViewModel
+import javax.inject.Inject
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
 
     lateinit var mBinding: ActivityRegisterBinding
+
+    @Inject
+    lateinit var registerViewModel: RegisterViewModel
 
     override fun contentView(): Int = R.layout.activity_register
 
@@ -32,6 +37,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
 
         mBinding.fab.setOnClickListener {
             animateRevealClose()
+        }
+        mBinding.btGo.setOnClickListener {
+            registerViewModel.doRegister(mBinding.etUsername.text.toString(),mBinding.etPassword.text.toString(),mBinding.etRepeatpassword.text.toString())
         }
     }
 

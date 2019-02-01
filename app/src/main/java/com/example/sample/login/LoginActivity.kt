@@ -5,16 +5,11 @@ import android.content.Intent
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.widget.Toast
-import androidx.work.Constraints
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
 import com.example.sample.R
-import com.example.sample.backgroundprocess.BackGroundProcess
 import com.example.sample.base.BaseActivity
 import com.example.sample.databinding.ActivityLoginBinding
 import com.example.sample.global.Constants.REQUEST_CODE_REGISTER
-import com.example.sample.login.loginPresenter.LoginModel
+import com.example.sample.register.RegisterActivity
 import java.util.regex.Pattern
 import javax.inject.Inject
 
@@ -22,7 +17,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
     lateinit var mBinding: ActivityLoginBinding
     @Inject
-    lateinit var loginPresenter: LoginModel
+    lateinit var loginPresenter: LoginViewModel
     private val VALID_EMAIL_ADDRESS_REGEX =
         Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE)
 

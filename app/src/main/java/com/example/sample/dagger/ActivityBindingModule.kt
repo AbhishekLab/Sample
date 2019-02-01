@@ -3,7 +3,7 @@ package com.example.sample.dagger
 import com.example.sample.dagger.scopes.ActivityScope
 import com.example.sample.Home.HomeActivity
 import com.example.sample.login.LoginActivity
-import com.example.sample.login.RegisterActivity
+import com.example.sample.register.RegisterActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
