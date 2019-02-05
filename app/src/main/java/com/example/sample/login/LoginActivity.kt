@@ -11,11 +11,6 @@ import com.example.sample.base.BaseActivity
 import com.example.sample.databinding.ActivityLoginBinding
 import com.example.sample.global.Constants.REQUEST_CODE_REGISTER
 import com.example.sample.register.RegisterActivity
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.FirebaseAuth
-import com.yarolegovich.lovelydialog.LovelyInfoDialog
 import java.util.regex.Pattern
 import javax.inject.Inject
 
@@ -39,36 +34,26 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     override fun initUI(binding: ActivityLoginBinding) {
         this.mBinding = binding
 
-        mBinding.btGo.setOnClickListener {
-            if (validate(mBinding.etUsername.text.toString(), mBinding.etPassword.text.toString())) {
-                loginPresenter.doLogin(mBinding.etUsername.text.toString(), mBinding.etPassword.text.toString())
+        mBinding.btnLogin.setOnClickListener {
+
+            if (validate(mBinding.edtId.text.toString(), mBinding.edtPass.text.toString())) {
+                if (loginPresenter.doLogin(mBinding.edtId.text.toString(), mBinding.edtPass.text.toString())) {
+
+                }
             } else {
                 Toast.makeText(this, "Please Enter your Id and Password ", Toast.LENGTH_SHORT).show()
             }
         }
 
-        mBinding.fab.setOnClickListener {
-            window.exitTransition = null
-            window.enterTransition = null
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                val options =
-                    ActivityOptions.makeSceneTransitionAnimation(this, mBinding.fab, mBinding.fab.getTransitionName())
-                startActivityForResult(
-                    Intent(this, RegisterActivity::class.java),
-                    REQUEST_CODE_REGISTER,
-                    options.toBundle()
-                )
-            } else {
-                startActivityForResult(Intent(this, RegisterActivity::class.java), REQUEST_CODE_REGISTER)
-            }
+        mBinding.fbRegister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
 
         mBinding.txtForgotPassword.setOnClickListener {
-            if (mBinding.etUsername.text.isEmpty()) {
+            if (mBinding.edtId.text.isEmpty()) {
                 Toast.makeText(this, "Enter Email Id", Toast.LENGTH_SHORT).show()
             } else {
-                loginPresenter.resetPassword(mBinding.etUsername.text.toString())
+                loginPresenter.resetPassword(mBinding.edtId.text.toString())
             }
         }
     }
@@ -78,9 +63,3 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         return (password.length > 0 || password == ";") && matcher.find()
     }
 }
-
-
-/*
-val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
-val result = OneTimeWorkRequest.Builder(BackGroundProcess::class.java).setConstraints(constraints).build()
-val workManager = WorkManager.getInstance().enqueue(result)*/

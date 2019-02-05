@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="diem10">10dp</dimen>
+    <dimen name="common_20_dp">20dp</dimen>
+    <dimen name="common_50_dp">50dp</dimen>
+</resources>

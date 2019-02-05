@@ -35,22 +35,22 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
             ShowEnterAnimation()
         }
 
-        mBinding.fab.setOnClickListener {
+        mBinding.fbClose.setOnClickListener {
             animateRevealClose()
         }
-        mBinding.btGo.setOnClickListener {
-            registerViewModel.doRegister(mBinding.etUsername.text.toString(),mBinding.etPassword.text.toString(),mBinding.etRepeatpassword.text.toString())
+        mBinding.btnRegister.setOnClickListener {
+            registerViewModel.doRegister(mBinding.edtId.text.toString(),mBinding.edtPass.text.toString(),mBinding.edtRePass.text.toString())
         }
     }
 
     fun animateRevealClose() {
         val mAnimator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ViewAnimationUtils.createCircularReveal(
-                mBinding.cvAdd,
-                mBinding.cvAdd.getWidth() / 2,
+                mBinding.clRoot,
+                mBinding.clRoot.getWidth() / 2,
                 0,
-                mBinding.cvAdd.getHeight().toFloat(),
-                (mBinding.fab.getWidth() / 2).toFloat()
+                mBinding.clRoot.getHeight().toFloat(),
+                (mBinding.fbClose.getWidth() / 2).toFloat()
             )
         } else {
             TODO("VERSION.SDK_INT < LOLLIPOP")
@@ -60,9 +60,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
         mAnimator.interpolator = AccelerateInterpolator()
         mAnimator.addListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
-                mBinding.cvAdd.setVisibility(View.INVISIBLE)
+                mBinding.clRoot.setVisibility(View.INVISIBLE)
                 super.onAnimationEnd(animation)
-                mBinding.fab.setImageResource(R.drawable.ic_signup)
+                mBinding.fbClose.setImageResource(R.drawable.ic_signup)
                 super@RegisterActivity.onBackPressed()
             }
             override fun onAnimationStart(animation: Animator) {
@@ -81,7 +81,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
 
             transition.addListener(object : Transition.TransitionListener {
                 override fun onTransitionStart(transition: Transition) {
-                    mBinding.cvAdd.setVisibility(View.GONE)
+                    mBinding.clRoot.setVisibility(View.GONE)
                 }
 
                 override fun onTransitionEnd(transition: Transition) {
@@ -111,11 +111,11 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun animateRevealShow() {
         val mAnimator = ViewAnimationUtils.createCircularReveal(
-            mBinding.cvAdd,
-            mBinding.cvAdd.getWidth() / 2,
+            mBinding.clRoot,
+            mBinding.clRoot.getWidth() / 2,
             0,
-            (mBinding.fab.getWidth() / 2).toFloat(),
-            mBinding.cvAdd.getHeight().toFloat()
+            (mBinding.fbClose.getWidth() / 2).toFloat(),
+            mBinding.clRoot.getHeight().toFloat()
         )
         mAnimator.duration = 500
         mAnimator.interpolator = AccelerateInterpolator()
@@ -125,7 +125,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
             }
 
             override fun onAnimationStart(animation: Animator) {
-                mBinding.cvAdd.setVisibility(View.VISIBLE)
+                mBinding.clRoot.setVisibility(View.VISIBLE)
                 super.onAnimationStart(animation)
             }
         })

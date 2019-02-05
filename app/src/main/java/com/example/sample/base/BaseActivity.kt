@@ -17,7 +17,7 @@ import com.google.firebase.FirebaseApp
 import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
 import android.app.ProgressDialog
-
+import android.view.Window
 
 
 abstract class BaseActivity<in T : ViewDataBinding> : DaggerActivity() {
