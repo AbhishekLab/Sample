@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
     <android.support.constraint.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent" android:layout_height="match_parent"
             android:background="@drawable/gradient">
 
+
+        <TextView
+                android:id="@+id/txt_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="SKIP"
+                android:background="#11000000"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textColor="#6f7f96"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"
+                android:paddingRight="@dimen/diem10"
+                android:paddingLeft="@dimen/diem10"
+                android:visibility="gone"
+                android:textSize="16dp"/>
 
         <ImageView
                 android:id="@+id/logo"
@@ -66,7 +82,7 @@
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorAccent"
+                app:cardBackgroundColor="#384A64"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="10dp"
                 android:layout_marginRight="35dp"
@@ -138,6 +154,16 @@
                     android:layout_width="@dimen/common_50_dp"
                     android:layout_height="@dimen/common_50_dp"
                     android:src="@drawable/fb"/>
+
+
+            <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="81dp"
+                    android:visibility="gone"/>
 
 
             <TextView

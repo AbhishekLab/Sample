@@ -12,12 +12,12 @@ import android.view.animation.AccelerateInterpolator
 import com.example.sample.R
 import com.example.sample.base.BaseActivity
 import com.example.sample.databinding.ActivityRegisterBinding
-import com.example.sample.login.LoginViewModel
 import javax.inject.Inject
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
 
     lateinit var mBinding: ActivityRegisterBinding
+
 
     @Inject
     lateinit var registerViewModel: RegisterViewModel
@@ -39,9 +39,14 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
             animateRevealClose()
         }
         mBinding.btnRegister.setOnClickListener {
-            registerViewModel.doRegister(mBinding.edtId.text.toString(),mBinding.edtPass.text.toString(),mBinding.edtRePass.text.toString())
+            registerViewModel.doRegister(
+                mBinding.edtId.text.toString(),
+                mBinding.edtPass.text.toString(),
+                mBinding.edtRePass.text.toString()
+            )
         }
     }
+
 
     fun animateRevealClose() {
         val mAnimator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -60,11 +65,12 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
         mAnimator.interpolator = AccelerateInterpolator()
         mAnimator.addListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
-                mBinding.clRoot.setVisibility(View.INVISIBLE)
+                mBinding.clRoot.setVisibility(View.VISIBLE)
                 super.onAnimationEnd(animation)
                 mBinding.fbClose.setImageResource(R.drawable.ic_signup)
                 super@RegisterActivity.onBackPressed()
             }
+
             override fun onAnimationStart(animation: Animator) {
                 super.onAnimationStart(animation)
             }
@@ -105,7 +111,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
     }
 
     override fun onBackPressed() {
-        animateRevealClose()
+        finish()
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

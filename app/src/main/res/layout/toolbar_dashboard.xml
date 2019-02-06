@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tb_dashboard"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize"
+    android:background="#586982"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/fl_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/fl_logo"
+            android:paddingRight="16dp">
+
+            <ImageView
+                android:id="@+id/img_drawer_toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_drawer_button"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_logo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/fl_toggle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/img_refresh"
+            android:layout_marginRight="8dp"
+            android:padding="8dp"
+            app:layout_constraintHorizontal_bias="0">
+
+            <ImageView
+                android:id="@+id/img_app_logo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/logo" />
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/img_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_refresh_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/fl_logo"
+            app:layout_constraintRight_toLeftOf="@+id/img_sync"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"/>
+
+        <ImageView
+            android:id="@+id/img_sync"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_cloudsave"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/img_refresh"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginRight="12dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"/>
+
+     <!--   <ImageView
+            android:id="@+id/img_help"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_information"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/img_sync"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_bias="1"
+            android:layout_marginRight="16dp"
+            android:paddingLeft="8dp"/>-->
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.Toolbar>

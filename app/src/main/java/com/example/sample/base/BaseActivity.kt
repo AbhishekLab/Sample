@@ -35,6 +35,7 @@ abstract class BaseActivity<in T : ViewDataBinding> : DaggerActivity() {
 
     }
 
+
     abstract fun initUI(binding: T)
     abstract fun contentView(): Int
 

@@ -71,6 +71,9 @@ dependencies {
 
     //LovelyDialog
     implementation 'com.yarolegovich:lovely-dialog:1.0.4'
+
+    //facebook
+    implementation 'com.facebook.android:facebook-login:[4,5)'
 }
 
 apply plugin: 'com.google.gms.google-services'

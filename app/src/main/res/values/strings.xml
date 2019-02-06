@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Sample</string>
+    <string name="facebook_app_id">350362828884017</string>
+    <string name="fb_login_protocol_scheme">fb350362828884017</string>
+
+
     <string name="runtime_permissions_txt">Please enable ALL permissions from app settings.</string>
     <string name="booki">BookI</string>
     <string name="welcome_back">Welcome Back</string>
